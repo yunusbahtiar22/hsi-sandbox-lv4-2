@@ -4,16 +4,16 @@ import {
   Group,
   rem,
   createStyles,
-  MantineTheme,
+  type MantineTheme,
 } from "@mantine/core";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.png";
 import { useRouter } from "next/router";
 
 interface AppShellProps {
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
 }
 
 const useStyle = createStyles((theme: MantineTheme) => ({
@@ -43,7 +43,7 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     },
   },
   active: {
-    background: theme.colors.warmPink[1],
+    background: theme.colors.warmPink[7],
     color: "white",
     [`&:visited`]: {
       color: "white",
@@ -63,7 +63,7 @@ export default function AppShell({ children }: AppShellProps) {
         </Link>
         {router.pathname === "/" && (
           <Group
-            spacing={60}
+            spacing={30}
             sx={() => ({
               position: "absolute",
               left: -100,

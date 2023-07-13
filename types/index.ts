@@ -1,3 +1,6 @@
+import { DehydratedState } from "@tanstack/react-query";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 export type URL = string;
 
 export interface Category {
@@ -18,10 +21,11 @@ export interface Post {
   id: number;
   category: Category;
   author: Author;
-  thumbnail: URL;
+  thumbnail: URL | StaticImport;
   slug: string;
   title: string;
   summary: string;
+  content: string;
 }
 
 export interface PostFilter {
@@ -32,11 +36,11 @@ export interface PostFilter {
   excludedArticleId?: number;
 }
 
-export type MetaPagination = {
+export interface MetaPagination {
   page: number;
   perPage: number;
   totalPages: number;
-};
+}
 
 export interface PostsMeta {
   pagination: MetaPagination;
@@ -50,4 +54,13 @@ export type PostsData = Post[];
 export interface PostsQueryResult {
   meta: PostsMeta;
   data: PostsData;
+}
+
+type Slug = string;
+
+export type PostsQueryKey = ["posts", PostFilter];
+export type StaticQueryPostKey = ["post", Slug];
+export type SuggestionQueryPostKey = ["suggestion", PostFilter];
+export interface PrefetchQueryResult {
+  dehydratedState: DehydratedState;
 }
