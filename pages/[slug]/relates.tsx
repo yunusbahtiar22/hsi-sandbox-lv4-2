@@ -47,8 +47,8 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     width: "70%",
     [theme.fn.smallerThan("sm")]: {
       width: "100%",
-      paddingLeft: rem(16),
-      paddingRight: rem(16),
+      paddingLeft: 0,
+      paddingRight: 0,
     },
   },
   mainHeading: {
