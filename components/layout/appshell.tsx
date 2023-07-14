@@ -43,8 +43,8 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     textDecoration: "none",
     padding: `${rem(10)} ${rem(18)}`,
     borderRadius: rem(12),
-    color: "black",
     minWidth: rem(91),
+    color: "black",
     [`&:visited`]: {
       color: "black",
     },
@@ -53,7 +53,7 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     background: theme.colors.warmPink[7],
     color: "white",
     [`&:visited`]: {
-      color: "black",
+      color: "white",
     },
   },
 }));
