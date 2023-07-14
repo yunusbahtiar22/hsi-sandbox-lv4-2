@@ -102,7 +102,6 @@ export default function RelatesPage({ article }: RelatesPageProps) {
       excludedArticleId: article.id,
     });
   const relatedPosts = data?.pages.flatMap((d) => d.data);
-  console.log("[data] : ", relatedPosts);
   return (
     <>
       <Head>

@@ -42,7 +42,6 @@ export default function Home() {
       sort,
     });
   const posts = data?.pages.flatMap((d) => d.data);
-  // console.log(`[posts] : `, posts);
   return (
     <>
       <Head>
