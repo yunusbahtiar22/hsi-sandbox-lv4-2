@@ -38,23 +38,43 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     position: "relative",
     borderRadius: rem(10),
     overflow: "hidden",
+    [theme.fn.smallerThan("sm")]: {
+      marginRight: "auto",
+      marginLeft: "auto",
+    },
   },
   mainContentWrapper: {
     width: "70%",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      paddingLeft: rem(16),
+      paddingRight: rem(16),
+    },
   },
   mainHeading: {
     fontWeight: 700,
     fontSize: rem(36),
     lineHeight: rem(58),
     color: theme.colors.gray[7],
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: rem(32),
+      lineHeight: rem(42),
+    },
   },
   mainContent: {
     fontSize: rem(18),
     lineHeight: rem(32),
     fontWeight: 600,
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: rem(16),
+      lineHeight: rem(24),
+    },
   },
   mainWrapper: {
     marginBottom: rem(156),
+    [theme.fn.smallerThan("sm")]: {
+      marginBottom: rem(60),
+    },
   },
   articleLink: {
     textDecoration: "none",
@@ -94,11 +114,15 @@ export default function RelatesPage({ article }: RelatesPageProps) {
       <AppShell>
         <Box className={classes.mainWrapper}>
           <Title
-            sx={{
+            sx={(theme: MantineTheme) => ({
               fontWeight: 700,
               fontSize: rem(36),
               lineHeight: rem(58),
-            }}
+              [theme.fn.smallerThan("sm")]: {
+                fontSize: rem(24),
+                lineHeight: rem(32),
+              },
+            })}
             order={4}>
             Related Post List
           </Title>

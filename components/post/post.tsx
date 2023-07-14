@@ -14,6 +14,10 @@ const useStyle = createStyles((theme) => ({
     position: "relative",
     borderRadius: rem(10),
     overflow: "hidden",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      height: rem(195.75),
+    },
   },
   cardText: {
     paddingTop: rem(20),
@@ -26,18 +30,29 @@ const useStyle = createStyles((theme) => ({
     marginTop: rem(16),
     marginBottom: rem(106),
     padding: rem(16),
+    [theme.fn.smallerThan("sm")]: {
+      marginBottom: rem(32),
+    },
   },
   headLine: {
     width: "85%",
     lineHeight: rem(61),
     fontSize: rem(48),
     fontWeight: 600,
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: rem(24),
+      lineHeight: rem(32),
+      width: "100%",
+    },
   },
   byLine: {
     color: theme.colors.gray[6],
     textTransform: "uppercase",
     fontWeight: 400,
     lineHeight: rem(58),
+    [theme.fn.smallerThan("sm")]: {
+      lineHeight: rem(24),
+    },
   },
   author: {
     color: "black",

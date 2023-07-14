@@ -30,18 +30,27 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     lineHeight: rem(58),
     fontWeight: 700,
     fontSize: rem(36),
+    [theme.fn.smallerThan("sm")]: {
+      lineHeight: rem(32),
+    },
   },
   summary: {
     color: "black",
     fontWeight: 600,
     fontSize: rem(18),
     lineHeight: rem(32),
+    [theme.fn.smallerThan("sm")]: {
+      lineHeight: rem(24),
+    },
   },
   byLine: {
     color: theme.colors.gray[6],
     textTransform: "uppercase",
     fontWeight: 400,
     lineHeight: rem(58),
+    [theme.fn.smallerThan("sm")]: {
+      lineHeight: rem(24),
+    },
   },
   author: {
     color: "black",
@@ -56,6 +65,10 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     marginTop: rem(133),
     overflow: "hidden",
     borderRadius: "10px",
+    [theme.fn.smallerThan("sm")]: {
+      height: rem(213.75),
+      marginTop: rem(40),
+    },
   },
   content: {
     color: theme.colors.gray[6],
@@ -132,11 +145,14 @@ export default function DetailPage() {
         <Box sx={{ marginTop: rem(89) }}>
           <Group position="apart" align="center">
             <Title
-              sx={{
+              sx={(theme: MantineTheme) => ({
                 fontSize: rem(36),
                 fontWeight: 600,
                 lineHeight: rem(46),
-              }}
+                [theme.fn.smallerThan("sm")]: {
+                  fontSize: rem(24),
+                },
+              })}
               order={4}>
               You might also like ...
             </Title>

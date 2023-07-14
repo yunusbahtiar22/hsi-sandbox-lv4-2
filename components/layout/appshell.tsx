@@ -24,10 +24,16 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     paddingTop: rem(61),
     paddingBottom: rem(61),
     position: "relative",
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+    },
   },
   container: {
     minHeight: "100vh",
     position: "relative",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+    },
   },
   link: {
     display: "inline-flex",
@@ -65,9 +71,13 @@ export default function AppShell({ children }: AppShellProps) {
         {router.pathname === "/" && (
           <Group
             spacing={30}
-            sx={() => ({
+            sx={(theme: MantineTheme) => ({
               position: "absolute",
               left: -100,
+              [theme.fn.smallerThan("")]: {
+                position: "initial",
+                paddingTop: rem(24),
+              },
             })}>
             <Link
               className={cx(classes.link, {

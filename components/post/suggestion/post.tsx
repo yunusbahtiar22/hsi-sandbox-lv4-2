@@ -16,13 +16,23 @@ interface SuggestionPostProps
 }
 
 const useStyle = createStyles((theme: MantineTheme) => ({
-  card: { width: rem(536), height: rem(700) },
+  card: {
+    width: rem(536),
+    height: rem(700),
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      height: rem(500),
+    },
+  },
   cardImage: {
     width: "100%",
     height: rem(358),
     position: "relative",
     borderRadius: rem(10),
     overflow: "hidden",
+    [theme.fn.smallerThan("sm")]: {
+      height: rem(213.75),
+    },
   },
   cardText: {
     paddingBottom: rem(20),
@@ -35,12 +45,19 @@ const useStyle = createStyles((theme: MantineTheme) => ({
     lineHeight: rem(46),
     fontSize: rem(28),
     fontWeight: 600,
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: rem(24),
+      lineHeight: rem(32),
+    },
   },
   byLine: {
     color: theme.colors.gray[6],
     textTransform: "uppercase",
     fontWeight: 400,
     lineHeight: rem(58),
+    [theme.fn.smallerThan("sm")]: {
+      lineHeight: rem(24),
+    },
   },
   author: {
     color: "black",
