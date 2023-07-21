@@ -101,7 +101,7 @@ export default function RelatesPage({ article }: RelatesPageProps) {
     usePostsInfiniteQuery({
       excludedArticleId: article.id,
     });
-  const relatedPosts = data?.pages.flatMap((d) => d.data);
+  const relatedPosts = data?.pages.flatMap((page) => page.data);
   return (
     <>
       <Head>
@@ -169,7 +169,7 @@ export default function RelatesPage({ article }: RelatesPageProps) {
               onClick={() => {
                 fetchNextPage();
               }}
-              disabled={!hasNextPage}>
+              disabled={isFetchingNextPage}>
               {isFetchingNextPage ? <Loader size="md" /> : "Load More"}
             </Button>
           )}
@@ -184,7 +184,6 @@ export const getServerSideProps: GetServerSideProps<
 > = async (ctx) => {
   const { slug } = ctx.query;
   const queryClient = getQueryClient();
-  // await queryClient.fetchQuery(["post", slug as string], fetchPostDetail);
   const { data } = await fetcher<{ data: Post }>(slug as string);
   await queryClient.fetchInfiniteQuery(
     ["posts", { excludedArticleId: data.id }],

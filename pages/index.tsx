@@ -41,7 +41,7 @@ export default function Home() {
     usePostsInfiniteQuery({
       sort,
     });
-  const posts = data?.pages.flatMap((d) => d.data);
+  const posts = data?.pages.flatMap((page) => page.data);
   return (
     <>
       <Head>
@@ -76,7 +76,7 @@ export default function Home() {
               onClick={() => {
                 fetchNextPage();
               }}
-              disabled={!hasNextPage}>
+              disabled={isFetchingNextPage}>
               {isFetchingNextPage ? <Loader size="md" /> : "Load More"}
             </Button>
           )}
